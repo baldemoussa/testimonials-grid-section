@@ -1,5 +1,5 @@
 /* Google Fonts Import */
-@import url('https://fonts.google.com/specimen/Barlow+Semi+Condensed');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
 
 /* Base Reset & Box Model */
 * {
@@ -8,12 +8,22 @@
     padding: 0;
 }
 
+
+:root {
+    --color-purple-500: hsl(263, 55%, 52%);
+    --color-grey-500: hsl(217, 19%, 35%);
+    --color-dark-blue: hsl(219, 29%, 14%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-grey-200: hsl(0, 0%, 81%);
+}
+
+
 body {
-    background-color: hsl(0, 0%, 81%);
-    font-family: 'Barlow Semi Condensed';
+    background-color: var(--color-grey-200);
+    font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 13px;
 }
-    
+
 main {
     display: flex;
     justify-content: center;
@@ -23,42 +33,50 @@ main {
 
 .container {
     padding: 2rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    width: 1440px;
-    justify-content: space-evenly;
+    width: 100%;
+    max-width: 1440px;
 }
 
-.big_box1,
-.big_box2 {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+.container {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    width: 300px;
-    min-height: auto;
+    width: 100%;
+    max-width: 1440px;
 }
 
-.big_box1 {
-    flex-grow: 1;
-    flex-basis: 300px;
+
+.card-daniel {
+    grid-column: 1 / span 2;
+    grid-row: 1;
 }
 
-.big_box2 section {
-    flex-grow: 1;
+.card-jonathan {
+    grid-column: 3;
+    grid-row: 1;
 }
 
-.box1,
-.box2 {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+.card-jeanette {
+    grid-column: 1;
+    grid-row: 2;
 }
 
-.purple_500 {
-    background-color: hsl(263, 55%, 52%);
+.card-patrick {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+}
+
+.card-kira {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+}
+
+.purple-500 {
+    background-color: var(--color-purple-500);
     color: #fff;
     background-image: url('./images/bg-pattern-quotation.svg');
     background-repeat: no-repeat;
@@ -66,26 +84,27 @@ main {
     flex-grow: 1;
 }
 
-.Grey_500 {
-    background-color: hsl(217, 19%, 35%);
+
+.grey-500 {
+    background-color: var(--color-grey-500);
     color: #fff;
 }
 
-.White {
-    background-color: #fff;
+.white {
+    background-color: var(--color-white);
     color: #333;
 }
 
-.Dark_blue {
-    background-color: hsl(219, 29%, 14%);
+.dark-blue {
+    background-color: var(--color-dark-blue);
     color: #fff;
     flex-grow: 1;
 }
 
-.purple_500,
-.Grey_500,
-.White,
-.Dark_blue {
+.purple-500,
+.grey-500,
+.white,
+.dark-blue {
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -133,22 +152,17 @@ footer {
     font-size: 0.9rem;
 }
 
-@media (max-width: 505px) {
+@media (max-width: 375px) {
     .container {
-        flex-direction: column;
-        width: 100%;
+        grid-template-columns: 1fr;
     }
 
-    .big_box1 {
-        flex-direction: column;
-        flex-basis: auto;
-    }
-
-    .box1 {
-        flex-direction: column;
-    }
-
-    .box2 {
-        flex-direction: column;
+    .card-daniel,
+    .card-jonathan,
+    .card-jeanette,
+    .card-patrick,
+    .card-kira {
+        grid-column: auto;
+        grid-row: auto;
     }
 }
