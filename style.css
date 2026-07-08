@@ -1,3 +1,19 @@
+/* Google Fonts Import */
+@import url('https://fonts.google.com/specimen/Barlow+Semi+Condensed');
+
+/* Base Reset & Box Model */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: hsl(0, 0%, 81%);
+    font-family: 'Barlow Semi Condensed';
+    font-size: 13px;
+}
+    
 main {
     display: flex;
     justify-content: center;
